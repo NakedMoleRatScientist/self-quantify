@@ -49,4 +49,8 @@ def announce_time times, modes
   end
 end
 
+def how_many_days? dates
+  dates.size - 1
+end
+
 puts announce_date(dates) + announce_walk(steps) + announce_weight(weights) + announce_time(times,modes)
