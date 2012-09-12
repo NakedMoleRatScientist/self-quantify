@@ -1,4 +1,5 @@
 require"rubygems"
+require"date"
 require"csv"
 
 
@@ -16,4 +17,12 @@ CSV.foreach("quantified.csv") do |line|
   modes << line[4]
 end
 
-puts dates.last + steps.last.to_s + weights.last.to_s + times.last.to_s + modes.last.to_s
+def announce_date dates
+  if dates.last == Date.today.to_s
+    "Today"
+  else
+    "As of the date " + dates.last
+  end
+end
+
+puts announce_date(dates)
