@@ -27,10 +27,26 @@ end
 
 def announce_walk steps
   if steps.last.nil?
-    ", there was no step data logged."
+    ", there was no steps data logged."
   else
     ", I logged " + steps.last + " steps."
   end
 end
 
-puts announce_date(dates) + announce_walk(steps)
+def announce_weight weights
+  if weights.last.nil?
+    " No weight data was logged."
+  else
+    " I weighed " + weights.last + " pounds "
+  end
+end
+
+def announce_time times, modes
+  if times.last.nil?
+    return
+  else
+    "on " + times.last + modes.last + "."
+  end
+end
+
+puts announce_date(dates) + announce_walk(steps) + announce_weight(weights) + announce_time(times,modes)
