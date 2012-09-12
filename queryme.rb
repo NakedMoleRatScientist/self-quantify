@@ -25,4 +25,12 @@ def announce_date dates
   end
 end
 
-puts announce_date(dates)
+def announce_walk steps
+  if steps.last.nil?
+    ", there was no step data logged."
+  else
+    ", I logged " + steps.last + " steps."
+  end
+end
+
+puts announce_date(dates) + announce_walk(steps)
