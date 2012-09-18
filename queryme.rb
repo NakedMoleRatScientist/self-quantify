@@ -17,6 +17,12 @@ CSV.foreach("quantified.csv") do |line|
   modes << line[4]
 end
 
+def print_weights weights
+  weights.each do |w|
+    print w.to_s + " , "
+  end
+end
+
 def announce_date dates
   if dates.last == Date.today.to_s
     "Today"
@@ -53,4 +59,6 @@ def how_many_days? dates
   dates.size - 1
 end
 
-puts announce_date(dates) + announce_walk(steps) + announce_weight(weights) + announce_time(times,modes)
+#puts announce_date(dates) + announce_walk(steps) + announce_weight(weights) + announce_time(times,modes)
+
+print_weights(weights)
