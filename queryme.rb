@@ -25,25 +25,6 @@ class Query
   end
 end
 
-dates = []
-steps = []
-weights = []
-times = []
-modes = []
-
-CSV.foreach("quantified.csv") do |line|
-  dates << line[0]
-  steps << line[1]
-  weights << line[2]
-  times << line[3]
-  modes << line[4]
-end
-
-def print_weights weights
-  weights.each do |w|
-    print w.to_s + " , "
-  end
-end
 
 def announce_date dates
   if dates.last == Date.today.to_s
