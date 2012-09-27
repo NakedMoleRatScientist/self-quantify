@@ -17,6 +17,12 @@ class Query
       @times << line[3]
     end
   end
+
+  def print_weights 
+    @weights.each do |w|
+      print w.to_s + " , "
+    end
+  end
 end
 
 dates = []
