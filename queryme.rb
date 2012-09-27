@@ -2,6 +2,22 @@ require"rubygems"
 require"date"
 require"csv"
 
+class Query
+  def initialize 
+    @dates = []
+    @steps = []
+    @weights = []
+    @times = []
+    @modes = []
+    
+    CSV.foreach("quantified.csv") do |line|
+      @dates << line[0]
+      @steps << line[1]
+      @weights << line[2]
+      @times << line[3]
+    end
+  end
+end
 
 dates = []
 steps = []
