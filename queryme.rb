@@ -98,10 +98,10 @@ end
 
 class WeightAnalyzer  
   def initialize data 
-    @weights = data.weights
+    @weights = data.weights[:data]
   end
 
-  def rolling_average 
+  def rolling_average
     sets = @weights.size / 5
     n = 0
     sets.times do
