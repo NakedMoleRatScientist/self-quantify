@@ -77,6 +77,4 @@ today = AnnounceToday.new()
 case ARGV[0]
 when "today"
   today.announce()
-when "weights"
-  print_weights(weights)
 end
