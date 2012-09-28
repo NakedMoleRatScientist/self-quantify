@@ -72,12 +72,32 @@ class AnnounceToday
   
 end
 
+class WeightAnalyzer  
+  def initialize data 
+    @weights = data.weights
+  end
+
+  def rolling_average 
+    sets = @weights.size / 5
+    n = 0
+    sets.times do
+      total = 0
+      5.times do
+        total += 1
+        n += 1
+      end
+      average = total / 5
+    end
+  end
+end
+
 data = DataLog.new()
 today = AnnounceToday.new(data)
+analyze_weight = WeightAnalyzer.new(data)
 
 case ARGV[0]
 when "today"
   today.announce()
-when "weights"
-  data.print_weights
+when "analyze"
+  analyze_weight.rolling_average
 end
