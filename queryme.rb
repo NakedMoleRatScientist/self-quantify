@@ -22,6 +22,22 @@ class DataLog
     end
   end
 
+  def last_date 
+    return @dates[:data].last
+  end
+
+  def last_step 
+    return @steps[:data].last
+  end
+
+  def last_weight 
+    return @weights[:data].last
+  end
+
+  def last_time 
+    return @times[:data].last
+  end
+
   def print_weights 
     @weights.each do |w|
       print w.to_s + " , "
