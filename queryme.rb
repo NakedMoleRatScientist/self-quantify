@@ -30,8 +30,8 @@ end
 
 
 class AnnounceToday
-  def initialize 
-    @data = DataLog.new()
+  def initialize data
+    @data = data
   end
 
   def date 
@@ -72,9 +72,12 @@ class AnnounceToday
   
 end
 
-today = AnnounceToday.new()
+data = DataLog.new()
+today = AnnounceToday.new(data)
 
 case ARGV[0]
 when "today"
   today.announce()
+when "weights"
+  data.print_weights
 end
