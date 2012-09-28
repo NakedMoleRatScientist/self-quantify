@@ -98,7 +98,7 @@ end
 
 class WeightAnalyzer  
   def initialize data 
-    @weights = data.weights[:data]
+    @weights = data.weights[:data].compact
   end
 
   def rolling_average
