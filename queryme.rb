@@ -6,16 +6,19 @@ require"csv"
 class DataLog
   attr_reader :dates, :steps, :weights, :times
   def initialize 
-    @dates = []
-    @steps = []
-    @weights = []
-    @times = []
-    
+    @dates = {:title => "dates", :data => []}
+    @steps = {:title => "steps", :data => []}
+    @weights = {:title => "weights", :data => []}
+    @times = {:title => "time", :data => []}
+    n = 0
     CSV.foreach("quantified.csv") do |line|
-      @dates << line[0]
-      @steps << line[1]
-      @weights << line[2]
-      @times << line[3]
+      if n =! 0        
+        @dates[:data] << line[0]
+        @steps[:data] << line[1]
+        @weights[:data] << line[2]
+        @times[:data] << line[3]
+      end
+      n += 1
     end
   end
 
