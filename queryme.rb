@@ -74,8 +74,9 @@ end
 
 today = AnnounceToday.new()
 
-if ARGV[0] == "today"
+case ARGV[0]
+when "today"
   today.announce()
-elsif ARGV[0] == "weights"
+when "weights"
   print_weights(weights)
 end
