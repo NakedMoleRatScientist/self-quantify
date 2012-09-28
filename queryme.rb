@@ -12,7 +12,7 @@ class DataLog
     @times = {:title => "time", :data => []}
     n = 0
     CSV.foreach("quantified.csv") do |line|
-      if n =! 0        
+      if n != 0        
         @dates[:data] << line[0]
         @steps[:data] << line[1]
         @weights[:data] << line[2]
