@@ -16,11 +16,7 @@ class DataLog
       if n != 0        
         @dates[:data] << line[0]
         @steps[:data] << line[1]
-        unless line[2] == nil
-          @weights[:data] << line[2]
-        else
-          @weights[:data] << -1
-        end
+        @weights[:data] << line[2]
         @times[:data] << line[3]
       end
       n += 1
