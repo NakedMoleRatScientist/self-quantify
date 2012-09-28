@@ -28,7 +28,7 @@ end
 
 
 
-class AnnouceToday
+class AnnounceToday
   def initialize 
     @data = DataLog.new()
   end
@@ -37,7 +37,7 @@ class AnnouceToday
     if @data.dates.last == Date.today.to_s
       "Today"
     else
-      "As of the date " + dates.last
+      "As of the date " + @data.dates.last
     end
   end
 
@@ -45,7 +45,7 @@ class AnnouceToday
     if @data.steps.last.nil?
       ", there were no steps data logged."
     else
-      ", I logged " + steps.last + " steps."
+      ", I logged " + @data.steps.last + " steps."
     end
   end
 
@@ -53,7 +53,7 @@ class AnnouceToday
     if @data.weights.last.nil?
       " No weight data was logged."
     else
-      " I weighed " + weights.last + " pounds "
+      " I weighed " + @data.weights.last + " pounds "
     end
   end
 
@@ -61,7 +61,7 @@ class AnnouceToday
     if @data.times.last.nil?
       return
     else
-      "on " + times.last.to_s + "."
+      "on " + @data.times.last.to_s + "."
     end
   end
 
@@ -71,9 +71,10 @@ class AnnouceToday
   
 end
 
+today = AnnounceToday.new()
 
 if ARGV[0] == "today"
-  puts announce_date(dates) + announce_walk(steps) + announce_weight(weights) + announce_time(times,modes)
+  today.announce()
 elsif ARGV[0] == "weights"
   print_weights(weights)
 end
