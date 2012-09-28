@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require"rubygems"
 require"date"
 require"csv"
