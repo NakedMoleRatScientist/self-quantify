@@ -53,35 +53,39 @@ class AnnounceToday
     @data = data
   end
 
-  def date 
-    if @data.dates.last == Date.today.to_s
+  def date
+    date = @data.last_date
+    if date == Date.today.to_s
       "Today"
     else
-      "As of the date " + @data.dates.last
+      "As of the date " + date
     end
   end
 
   def step
-    if @data.steps.last.nil?
+    step = @data.last_step
+    if step.nil?
       ", there were no steps data logged."
     else
-      ", I logged " + @data.steps.last + " steps."
+      ", I logged " + step + " steps."
     end
   end
 
   def weight
-    if @data.weights.last.nil?
+    weight = @data.last_weight
+    if weight.nil?
       " No weight data was logged."
     else
-      " I weighed " + @data.weights.last + " pounds "
+      " I weighed " + weight + " pounds "
     end
   end
 
-  def time 
-    if @data.times.last.nil?
+  def time
+    time = @data.last_time
+    if time.nil?
       return
     else
-      "on " + @data.times.last.to_s + "."
+      "on " + time + "."
     end
   end
 
