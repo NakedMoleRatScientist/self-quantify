@@ -102,16 +102,18 @@ class WeightAnalyzer
   end
 
   def rolling_average
+    averages = []
     sets = @weights.size / 5
     n = 0
     sets.times do
       total = 0
       5.times do
-        total += 1
+        total += @weights[n].to_f
         n += 1
       end
-      average = total / 5
+      averages << total / 5
     end
+    return averages
   end
 end
 
@@ -123,5 +125,5 @@ case ARGV[0]
 when "today"
   today.announce()
 when "analyze"
-  analyze_weight.rolling_average
+  puts analyze_weight.rolling_average
 end
