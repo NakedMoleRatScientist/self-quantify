@@ -112,7 +112,7 @@ class WeightAnalyzer
         total += @weights[n].to_f
         n += 1
       end
-      averages << total / 5
+      averages << (total / 5).round(2)
     end
     return averages
   end
