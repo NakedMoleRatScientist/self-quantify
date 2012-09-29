@@ -3,6 +3,7 @@ require"rubygems"
 require"debugger"
 require"date"
 require"csv"
+require"json"
 
 class DataLog
   attr_reader :dates, :steps, :weights, :times
