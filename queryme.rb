@@ -126,5 +126,5 @@ case ARGV[0]
 when "today"
   today.announce()
 when "analyze"
-  puts analyze_weight.rolling_average
+  puts JSON.generate(analyze_weight.rolling_average)
 end
